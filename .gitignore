@@ -24,8 +24,6 @@ yarn-error.log*
 .pnpm-debug.log*
 logs
 *.log
-
-# Vercel
 .vercel
 
 # TypeScript
