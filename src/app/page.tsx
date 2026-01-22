@@ -1,65 +1,84 @@
-import Image from "next/image";
+import { Sidebar } from "@/components/sidebar"
+import { ModeToggle } from "@/components/mode-toggle"
+import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    <div className="flex min-h-screen bg-[#F2F2F2] dark:bg-[#121212] font-sans">
+      {/* Sidebar - Fixed Position */}
+      <Sidebar />
+
+      {/* Main Content Area */}
+      <main className="flex-1 ml-0 md:ml-24 p-4 md:p-8 overflow-y-auto">
+        
+        {/* Header */}
+        <header className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+              My Dashboard
+            </h1>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input 
+                placeholder="Search..." 
+                className="pl-9 h-10 w-64 rounded-full bg-white dark:bg-gray-800 border-none shadow-sm"
+              />
+            </div>
+            <ModeToggle />
+            <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+               {/* Placeholder for User Avatar */}
+               <img src="https://github.com/shadcn.png" alt="User" />
+            </div>
+          </div>
+        </header>
+
+        {/* Dashboard Grid Container - Placeholder for Widgets */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
+           {/* Placeholder Cards to visualize the layout */}
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Stats Widget
+           </div>
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Done Tasks
+           </div>
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-2 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Resolved Tasks Chart
+           </div>
+           
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 row-span-2 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Activity Progress
+           </div>
+           <div className="bg-[#E65F2A] rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 row-span-2 flex flex-col justify-between text-white">
+             <h3 className="text-2xl font-medium leading-tight">How to add new tasks during meetings?</h3>
+             <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center self-end">
+               !
+             </div>
+           </div>
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Team Stats
+           </div>
+           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
+             Priority List
+           </div>
+
+           <div className="bg-black text-white rounded-3xl p-6 shadow-sm col-span-1 md:col-span-2 border border-gray-800 flex flex-col justify-between">
+              <div className="flex justify-between items-start">
+                 <div className="flex items-center gap-2">
+                    <div className="h-4 w-4 bg-white/20 rounded-full" />
+                    <span>My Dashboard</span>
+                 </div>
+                 <button className="h-8 w-8 rounded-full bg-[#E65F2A] flex items-center justify-center">+</button>
+              </div>
+              <div>
+                  <h3 className="text-xl font-medium mt-4">Create your custom dashboard</h3>
+              </div>
+           </div>
         </div>
       </main>
     </div>
-  );
+  )
 }
