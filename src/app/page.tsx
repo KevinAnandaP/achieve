@@ -2,6 +2,8 @@ import { Sidebar } from "@/components/sidebar"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
+import { StatsWidget } from "@/components/dashboard/stats-widget"
+import { ActivityChart } from "@/components/dashboard/activity-chart"
 
 export default function Home() {
   return (
@@ -38,9 +40,13 @@ export default function Home() {
 
         {/* Dashboard Grid Container - Placeholder for Widgets */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
-           {/* Placeholder Cards to visualize the layout */}
+           {/* Stats Widget */}
+           <div className="col-span-1 md:col-span-1 row-span-2">
+              <StatsWidget />
+           </div>
+           
            <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
-             Stats Widget
+             Done Tasks
            </div>
            <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
              Done Tasks
@@ -49,8 +55,9 @@ export default function Home() {
              Resolved Tasks Chart
            </div>
            
-           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 row-span-2 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
-             Activity Progress
+           {/* Activity Progress Chart */}
+           <div className="col-span-1 md:col-span-1 row-span-2">
+             <ActivityChart />
            </div>
            <div className="bg-[#E65F2A] rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 row-span-2 flex flex-col justify-between text-white">
              <h3 className="text-2xl font-medium leading-tight">How to add new tasks during meetings?</h3>
