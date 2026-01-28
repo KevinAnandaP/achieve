@@ -3,7 +3,13 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { StatsWidget } from "@/components/dashboard/stats-widget"
-import { ActivityChart } from "@/components/dashboard/activity-chart"
+import { TeamWidget } from "@/components/dashboard/team-widget"
+import { ActivityChartWrapper } from "@/components/dashboard/activity-chart-wrapper"
+import Image from "next/image"
+
+import { TipWidget } from "@/components/dashboard/tip-widget"
+
+import { PriorityWidget } from "@/components/dashboard/priority-widget"
 
 export default function Home() {
   return (
@@ -31,22 +37,28 @@ export default function Home() {
               />
             </div>
             <ModeToggle />
-            <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+            <div className="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
                {/* Placeholder for User Avatar */}
-               <img src="https://github.com/shadcn.png" alt="User" />
+               <Image 
+                 src="https://github.com/shadcn.png" 
+                 alt="User" 
+                 fill
+                 className="object-cover"
+               />
             </div>
           </div>
         </header>
 
-        {/* Dashboard Grid Container - Placeholder for Widgets */}
+        {/* Dashboard Grid Container - Widgets */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
            {/* Stats Widget */}
            <div className="col-span-1 md:col-span-1 row-span-2">
               <StatsWidget />
            </div>
            
-           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
-             Done Tasks
+           {/* Team Widget */}
+           <div className="col-span-1 md:col-span-1">
+             <TeamWidget />
            </div>
            <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
              Done Tasks
@@ -57,19 +69,22 @@ export default function Home() {
            
            {/* Activity Progress Chart */}
            <div className="col-span-1 md:col-span-1 row-span-2">
-             <ActivityChart />
+             <ActivityChartWrapper />
            </div>
-           <div className="bg-[#E65F2A] rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 row-span-2 flex flex-col justify-between text-white">
-             <h3 className="text-2xl font-medium leading-tight">How to add new tasks during meetings?</h3>
-             <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center self-end">
-               !
-             </div>
+           
+           {/* Knowledge Base / Tips Widget */}
+           <div className="col-span-1 md:col-span-1 row-span-2">
+             <TipWidget />
            </div>
+
+           {/* Priority Widget */}
+           <div className="col-span-1 md:col-span-1">
+             <PriorityWidget />
+           </div>
+           
+           {/* Placeholder for User Tasks */}
            <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
-             Team Stats
-           </div>
-           <div className="bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm col-span-1 md:col-span-1 border border-gray-100 dark:border-gray-800 flex items-center justify-center text-gray-400">
-             Priority List
+             My Dashboard Widget
            </div>
 
            <div className="bg-black text-white rounded-3xl p-6 shadow-sm col-span-1 md:col-span-2 border border-gray-800 flex flex-col justify-between">

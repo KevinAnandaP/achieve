@@ -1,8 +1,5 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { Hexagon, ArrowUpRight } from "lucide-react"
-
 export function StatsWidget() {
   return (
     <div className="flex flex-col gap-4 h-full">
