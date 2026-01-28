@@ -14,7 +14,7 @@ export function TipWidget() {
         <span className="text-2xl font-bold">!</span>
       </div>
 
-      {/* Subtle Texture/Gradient Circle (Optional to match image grain) */}
+      {/* Subtle Texture/Gradient Circle */}
       <div className="absolute -bottom-10 -right-10 h-32 w-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
     </div>
   )
