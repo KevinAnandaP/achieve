@@ -27,7 +27,7 @@ export function PriorityWidget() {
          </div>
       </div>
 
-      {/* Visual Indicator (Triangles) */}
+      {/* Visual Indicator */}
       <div className="flex items-end gap-1 h-8 mt-auto">
          <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[0px] border-r-transparent border-b-[24px] border-b-black dark:border-b-white" />
          <div className="w-0 h-0 border-l-[12px] border-l-transparent border-r-[0px] border-r-transparent border-b-[16px] border-b-black dark:border-b-white" />
