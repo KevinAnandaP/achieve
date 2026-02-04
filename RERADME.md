@@ -1,1 +1,1 @@
-kayak to do gitu lah
+kayak to do gitu lah cuy
